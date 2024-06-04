@@ -1,46 +1,28 @@
-import toast from 'react-hot-toast';
-import { useState } from 'react';
-import css from './SearchBar.module.css';
+import PropTypes from "prop-types";
+import css from "./SearchBar.module.css"
 
-const SearchForm = ({ onSearch }) => {
-  const [topic, setTopic] = useState('');
-
-  const handleSubmit = evt => {
-    evt.preventDefault();
-    const form = evt.target;
-
-    if (topic.trim() === '') {
-      toast.error('Please enter a search term!');
-      return;
-    }
-
-    onSearch(topic);
-    form.reset();
-  };
-
-  const handleChange = evt => {
-    setTopic(evt.target.value);
-  };
-
+export default function SearchBar({ onSubmit }) {
   return (
-    <header className={css.header}>
-      <form onSubmit={handleSubmit} className={css['form-container']}>
+    <div className="container">
+      <form onSubmit={onSubmit} className={css.form}>
         <input
-          name="topic"
           type="text"
+          name="movieName"
+          placeholder="Enter the title to search"
           autoComplete="off"
           autoFocus
-          placeholder="Search images and photos"
-          value={topic}
-          onChange={handleChange}
-          className={css['search-input']}
+          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+          required
+          className={css.input}
         />
-        <button type="submit" className={css['search-btn']}>
+        <button type="submit" className={css.btnSearch}>
           Search
         </button>
       </form>
-    </header>
+    </div>
   );
-};
+}
 
-export default SearchForm;
+SearchBar.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};

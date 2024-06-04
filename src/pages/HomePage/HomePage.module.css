@@ -1,0 +1,16 @@
+.homePage {
+    padding-left: 24px;
+    color: black;
+    margin-bottom: 24px;
+}
+
+.movieList {
+    list-style: outside;
+}
+
+.item {
+    color: black;
+}
+.item:hover, .item:focus {
+    color: fuchsia;
+}

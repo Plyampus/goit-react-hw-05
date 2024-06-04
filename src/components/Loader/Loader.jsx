@@ -1,10 +1,18 @@
-import { Audio } from 'react-loader-spinner';
+import BarLoader from "react-spinners/BarLoader";
+import css from "/src/components/Loader/Loader.jsx";
 
-const Loader = () => (
-  <div className="loader-container">
-    <Audio type="TailSpin" color="#00BFFF" height={100} width={100} />
-    <p>Loading data, please wait...</p>
-  </div>
-);
-
-export default Loader;
+export default function Loader() {
+  return (
+    <div className="container">
+      <div className={css.loader}>
+        <BarLoader
+          color="fuchsia"
+          cssOverride={null}
+          size={15}
+          width={100}
+          speedMultiplier={1}
+        />
+      </div>
+    </div>
+  );
+}
