@@ -1,0 +1,8 @@
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  height: 100vh; /* Висота контейнера рівна висоті вікна перегляду */
+}
